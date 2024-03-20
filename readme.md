@@ -6,7 +6,7 @@ Broadcast a live camera feed and pick it up from a web browser. Run on an Arduin
 
 ## Dependencies
 
-Nicla vision arduino board
+Portenta vision shield and H7 arduino board
 
 &nbsp;
 &nbsp;
