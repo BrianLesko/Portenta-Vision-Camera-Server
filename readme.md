@@ -1,10 +1,6 @@
 
 # Live Camera feed
-Broadcast a live camera feed and pick it up from a computer that can run the client.py file & must be connected to the same LAN network.
-
-Run the server.py file on a NICLA Vision arduino board
-
-&nbsp;
+Broadcast a live camera feed and pick it up from a web browser. Run on an Arduino Portenta H7 and Vision Shield
 
 &nbsp;
 
