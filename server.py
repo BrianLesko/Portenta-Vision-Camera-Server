@@ -4,6 +4,7 @@ import image # Import module containing machine vision algorithms
 import time # Import module for tracking elapsed time
 import network
 import socket
+import os # added for SD card
 
 SSID = "BL_phone"  # Network SSID
 KEY = "bl123167"  # Network key
@@ -80,6 +81,26 @@ def start_streaming(s):
         )
         client.sendall(header)
         client.sendall(cframe)
+        #print(clock.fps())
+
+        # While the SD card is inserted it replaces the default flash
+        # we can save to it 
+        #Example:
+        #    with open('/sd/predictions.txt', 'a') as f:  
+        #            f.write(label + "\n")
+
+        # Save the frame
+        frame_path = f'/sd/frame_{frame_counter % 10}.jpg'
+        with open(frame_path, 'wb') as f:
+            f.write(frame)
+
+        frame_counter += 1
+
+        # If more than 10 frames have been saved, delete the oldest one
+        if frame_counter > 10:
+            oldest_frame_path = f'/sd/frame_{(frame_counter - 10) % 10}.jpg'
+            os.remove(oldest_frame_path)
+        
         print(clock.fps())
 
 
